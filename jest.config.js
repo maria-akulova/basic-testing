@@ -1,13 +1,15 @@
-export const testEnvironment = 'node';
-export const testPathIgnorePatterns = ['/node_modules/'];
-export const testMatch = ['**/?(*.)+(test).ts'];
-export const moduleFileExtensions = ['ts', 'js', 'json'];
-export const moduleNameMapper = {
-  '^axios$': require.resolve('axios'),
-};
-export const restoreMocks = true;
-export const resetMocks = true;
-export const moduleDirectories = ['node_modules', '<rootDir>/src'];
-export const transform = {
-  '^.+\\.ts?$': 'ts-jest',
+module.exports = {
+  testEnvironment: 'node',
+  testPathIgnorePatterns: ['/node_modules/'],
+  testMatch: ['**/?(*.)+(test).ts'],
+  moduleFileExtensions: ['ts', 'js', 'json'],
+  moduleNameMapper: {
+    '^axios$': require.resolve('axios'),
+  },
+  restoreMocks: true,
+  resetMocks: true,
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
+  transform: {
+    '^.+\\.ts?$': 'ts-jest',
+  },
 };
