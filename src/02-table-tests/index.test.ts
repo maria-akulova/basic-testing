@@ -12,12 +12,12 @@ describe('simpleCalculator', () => {
     { a: 3, b: 5, action: Action.Multiply, expected: 15 },
     { a: 15, b: 3, action: Action.Divide, expected: 5 },
     { a: 3, b: 3, action: Action.Exponentiate, expected: 27 },
-    { a: 3, b: 5, action: 'Invalid', expected: null },
-    { a: 'a', b: 5, action: 'Invalid', expected: null },
+    { a: 3, b: 5, action: '!&', expected: null },
+    { a: 'a', b: 5, action: Action.Subtract, expected: null },
   ];
 
   test.each(testCases)(
-    'should return $expected when $action on numbers: $a, $b',
+    'should return $expected when  $a $action $b',
     ({ a, b, action, expected }) => {
       const result = simpleCalculator({ a, b, action });
       expect(result).toBe(expected);
