@@ -15,10 +15,12 @@ describe('simpleCalculator', () => {
     { a: 3, b: 5, action: 'Invalid', expected: null },
     { a: 'a', b: 5, action: 'Invalid', expected: null },
   ];
-  testCases.forEach(({ a, b, action, expected }) => {
-    test(`should return ${expected} when ${action} on numbers: ${a}, ${b}`, () => {
+
+  test.each(testCases)(
+    'should return $expected when $action on numbers: $a, $b',
+    ({ a, b, action, expected }) => {
       const result = simpleCalculator({ a, b, action });
       expect(result).toBe(expected);
-    });
-  });
+    },
+  );
 });
