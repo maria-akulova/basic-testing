@@ -1,17 +1,24 @@
-// Uncomment the code below and write your tests
-/* import {  simpleCalculator, Action } from './index';
-
-const testCases = [
-    { a: 1, b: 2, action: Action.Add, expected: 3 },
-    { a: 2, b: 2, action: Action.Add, expected: 4 },
-    { a: 3, b: 2, action: Action.Add, expected: 5 },
-    // continue cases for other actions    
-]; */
+import { simpleCalculator, Action } from './index';
 
 describe('simpleCalculator', () => {
-  // This test case is just to run this test suite, remove it when you write your own tests
-  test('should blah-blah', () => {
-    expect(true).toBe(true);
+  const testCases: {
+    a: unknown;
+    b: unknown;
+    action: unknown;
+    expected: unknown;
+  }[] = [
+    { a: 2, b: 3, action: Action.Add, expected: 5 },
+    { a: 5, b: 3, action: Action.Subtract, expected: 2 },
+    { a: 3, b: 5, action: Action.Multiply, expected: 15 },
+    { a: 15, b: 3, action: Action.Divide, expected: 5 },
+    { a: 3, b: 3, action: Action.Exponentiate, expected: 27 },
+    { a: 3, b: 5, action: 'Invalid', expected: null },
+    { a: 'a', b: 5, action: 'Invalid', expected: null },
+  ];
+  testCases.forEach(({ a, b, action, expected }) => {
+    test(`should return ${expected} when ${action} on numbers: ${a}, ${b}`, () => {
+      const result = simpleCalculator({ a, b, action });
+      expect(result).toBe(expected);
+    });
   });
-  // Consider to use Jest table tests API to test all cases above
 });
