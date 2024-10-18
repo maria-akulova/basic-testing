@@ -13,7 +13,11 @@ jest.mock('./index', () => {
 
 describe('partial mocking', () => {
   let consoleLogSpy:
-    | jest.SpyInstance<void, [message?: any, ...optionalParams: any[]], any>
+    | jest.SpyInstance<
+        void,
+        [message?: unknown, ...optionalParams: unknown[]],
+        unknown
+      >
     | undefined = undefined;
   beforeEach(() => {
     consoleLogSpy = jest.spyOn(console, 'log');
